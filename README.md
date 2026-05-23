@@ -1,6 +1,6 @@
-# bloodsiren
+# siren
 
-8-channel judge recording on **Pop!_OS / Ubuntu** with two identical **Thesycon USB HIFI AUDIO** (`152a:893a`) interfaces and **Tracktion Waveform 13**.
+8-channel judge recording on **Pop!_OS / Ubuntu** with two identical **Thesycon USB HIFI AUDIO** (`152a:893a`) interfaces and **Trackition Waveform 13**.
 
 | Unit | Role | Tracks |
 |------|------|--------|
@@ -17,8 +17,8 @@
 ## Quick install (new laptop)
 
 ```bash
-git clone https://github.com/<your-github-user>/bloodsiren.git
-cd bloodsiren
+git clone git@github.com:platysonique/siren.git
+cd siren
 chmod +x scripts/*.sh
 ./scripts/install.sh
 ```
