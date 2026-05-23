@@ -4,8 +4,9 @@ set -euo pipefail
 # Powered USB hub paths — from ~/.config/bloodsiren/hub-ports.env or env vars.
 ENV_FILE="${HOME}/.config/bloodsiren/hub-ports.env"
 [[ -f "$ENV_FILE" ]] && source "$ENV_FILE"
-HUB_PORT_BLOOD="${HUB_PORT_BLOOD:-2.3}"
-HUB_PORT_SIREN="${HUB_PORT_SIREN:-2.2}"
+# Ports from env file only — no example defaults (empty siren = 4 inputs).
+HUB_PORT_BLOOD="${HUB_PORT_BLOOD:-}"
+HUB_PORT_SIREN="${HUB_PORT_SIREN:-}"
 
 find_card_for_hub_port() {
   local port="$1"
@@ -20,11 +21,13 @@ find_card_for_hub_port() {
   return 1
 }
 
-CARD_BLOOD=$(find_card_for_hub_port "$HUB_PORT_BLOOD" 2>/dev/null || true)
-CARD_SIREN=$(find_card_for_hub_port "$HUB_PORT_SIREN" 2>/dev/null || true)
+CARD_BLOOD=""
+CARD_SIREN=""
+[[ -n "$HUB_PORT_BLOOD" ]] && CARD_BLOOD=$(find_card_for_hub_port "$HUB_PORT_BLOOD" 2>/dev/null || true)
+[[ -n "$HUB_PORT_SIREN" ]] && CARD_SIREN=$(find_card_for_hub_port "$HUB_PORT_SIREN" 2>/dev/null || true)
 
 if [[ -z "$CARD_BLOOD" && -z "$CARD_SIREN" ]]; then
-  echo "No USB HIFI AUDIO on hub ports ${HUB_PORT_BLOOD} / ${HUB_PORT_SIREN}." >&2
+  echo "No USB HIFI AUDIO on configured hub ports (blood=${HUB_PORT_BLOOD:-<unset>} siren=${HUB_PORT_SIREN:-<unset>}). Run scripts/detect-hub-ports.sh" >&2
   exit 1
 fi
 
