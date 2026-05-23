@@ -17,7 +17,7 @@
 ## Quick install (new laptop)
 
 ```bash
-git clone https://github.com/YOUR_USER/bloodsiren.git
+git clone https://github.com/<your-github-user>/bloodsiren.git
 cd bloodsiren
 chmod +x scripts/*.sh
 ./scripts/install.sh
