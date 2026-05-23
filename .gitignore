@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local / machine-specific
+config/hub-ports.local.env
+hub-ports.local.env
+*.wav
+/tmp/
+
+# Archives & duplicates
+*.zip
+bloodsiren-kit/
+BLOODSIREN-KIT.md
+
+# Unrelated project folders in this download directory
+attracktive/
+backups/
+collective*/
+retromod*/
+
+# Old download helpers
+scripts/download-all.sh
+scripts/download-urls.json
+scripts/collect-download-urls.js
+scripts/install-content.sh
+
+# Cursor / IDE
+.cursor/
+*.bak*
+Waveform.settings.bak*

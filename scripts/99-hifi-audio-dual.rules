@@ -1,0 +1,11 @@
+# Hub port 3 = blood (Waveform tracks 1-4)
+# Hub port 4 = siren (Waveform tracks 5-8)
+SUBSYSTEM!="sound", GOTO="hifi_audio_dual_end"
+ACTION!="add", GOTO="hifi_audio_dual_end"
+ATTR{idVendor}!="152a", GOTO="hifi_audio_dual_end"
+ATTR{idProduct}!="893a", GOTO="hifi_audio_dual_end"
+
+DEVPATH=="*/1-2.3/*/*/sound/card?", ATTR{id}="BLOOD"
+DEVPATH=="*/1-2.4/*/*/sound/card?", ATTR{id}="SIREN"
+
+LABEL="hifi_audio_dual_end"
