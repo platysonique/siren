@@ -1,26 +1,19 @@
-# Publish to GitHub
+# Publish **siren** to GitHub
 
-Repo is committed locally on branch `main`. `gh` was not installed on this machine.
+Repo: **https://github.com/platysonique/siren** (after publish)
 
 ```bash
-sudo apt install gh
-gh auth login
+sudo apt install gh    # optional; or use /tmp/gh_2.69.0_linux_amd64/bin/gh
+gh auth login          # one-time — browser device code
 
 cd ~/Downloads/waveformstuff
-gh repo create bloodsiren --public --description "Dual USB HIFI 8ch judge recording for Waveform on Linux" --source=. --remote=origin --push
+./scripts/publish-github.sh
 ```
 
-Or create an empty repo on GitHub, then:
+Clone on another laptop:
 
 ```bash
-git remote add origin git@github.com:<user>/bloodsiren.git
-git push -u origin main
-```
-
-On another laptop:
-
-```bash
-git clone git@github.com:<user>/bloodsiren.git
-cd bloodsiren
+git clone git@github.com:platysonique/siren.git
+cd siren
 ./scripts/install.sh
 ```
